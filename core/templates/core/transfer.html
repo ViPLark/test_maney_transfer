@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Money transfer</title>
+</head>
+<body>
+{% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+      <li class="{{ message.tags }}">
+        {{ message|safe }}
+        <a href="#" class="close">✖</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}
+<form method="POST">{% csrf_token %}
+  {{ form }}
+  <input type="submit" value="Перевести">
+</form>
+</body>
+</html>
